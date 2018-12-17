@@ -3,7 +3,7 @@ import GlobalState from './reducers';
 import { createStore } from "redux";
 
 import React from 'react';
-import App from '../App';
+import App from '../components/App';
 
 import { questions } from "../assets/mock-data";
 
@@ -14,7 +14,7 @@ export default class ReduxProvider extends React.Component {
             score: 0,
             finished: false,
             currentQuestion: 0,
-            questions: [ ...questions ]
+            questions: [...questions]
         };
         this.store = this.configureStore();
     }
@@ -22,7 +22,7 @@ export default class ReduxProvider extends React.Component {
     render() {
         return (
             <Provider store={ this.store }>
-                <div style={{ height: '100%' }}>
+                <div style={ { height: '100%' } }>
                     <App />
                 </div>
             </Provider>
@@ -30,7 +30,7 @@ export default class ReduxProvider extends React.Component {
     }
 
     configureStore() {
-                return createStore(GlobalState, this.initialState);
+        return createStore(GlobalState, this.initialState);
     }
 
 }
